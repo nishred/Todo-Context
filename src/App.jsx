@@ -68,9 +68,37 @@ function App() {
   }
 
 
+  function updateTodo(id,todoText)
+  {
+
+     const nextTodos = todos.map((todo) => {
+
+         if(todo.id === id)
+         {
+ 
+             const nextTodo = {...todo}
+             nextTodo.text = todoText
+
+             return nextTodo
+
+         }
+         else
+         return todo
+
+     })
+
+
+     setTodos(nextTodos)
+
+
+
+  }
+
+
+
   return (
     <div style={{width : "fit-content",color : "wheat"}}>
-     <TodoList todos={todos} completeTodo = {completeTodo} deleteTodo={deleteTodo}/>
+     <TodoList todos={todos} completeTodo = {completeTodo} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
      {show && (<AddTodo addTodo={addTodo} setShow={setShow}/>)}
      {!show && (<button onClick={() => {
          setShow(true)

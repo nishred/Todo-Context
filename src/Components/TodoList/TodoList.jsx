@@ -1,7 +1,8 @@
 import React from "react";
 import Todo from "../Todo/Todo";
 
-const TodoList = ({todos,completeTodo,deleteTodo}) => {
+const TodoList = ({todos,completeTodo,deleteTodo,updateTodo}) => {
+
 
 
    return (
@@ -16,6 +17,10 @@ const TodoList = ({todos,completeTodo,deleteTodo}) => {
        }}  onDelete = {() => {
 
          deleteTodo(todo.id)
+
+       }} onUpdate={(todoText) => {
+  
+          updateTodo(todo.id,todoText)
 
        }}  />
 
